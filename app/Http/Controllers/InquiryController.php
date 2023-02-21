@@ -51,9 +51,14 @@ class InquiryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(int $id)
     {
-        //
+        return response()->json($this->inquiryServices->getById($id));
+    }
+
+    public function showAll()
+    {
+        return response()->json($this->inquiryServices->getAll());
     }
 
     /**
@@ -87,6 +92,6 @@ class InquiryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return response()->json($this->inquiryServices->delete($id));
     }
 }

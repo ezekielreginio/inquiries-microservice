@@ -15,6 +15,8 @@ class CreateInquiriesToUsersTable extends Migration
     {
         Schema::create('inquiries_to_users', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('fk_inquiry')->constrained();
+            $table->unsignedBigInteger('fk_user')->constrained();
             $table->foreign('fk_inquiry')->references('id')->on('inquiries');
             $table->foreign('fk_user')->references('id')->on('users');
         });
